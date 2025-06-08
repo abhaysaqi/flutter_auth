@@ -13,5 +13,6 @@ class AppColor {
   static final dividerColor = Color(0XFF000001);
   static final authIconButtonColor = Color(0XFFFFFFF8);
   static final txtButtonColor = Color(0XFF023EBA);
+  static final backBtnColor = Color(0XFF000001);
  
 }

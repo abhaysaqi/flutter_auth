@@ -4,6 +4,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/components/Background.dart';
+import 'package:flutter_widgets/components/back_button.dart';
 import 'package:flutter_widgets/data/colors.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
@@ -13,25 +14,20 @@ class ForgetPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController emailController = TextEditingController();
     final key = GlobalKey<FormState>();
-
     return Background(
+      appbar: AppBar(leading: BackBtn()),
       child: Column(
         children: [
           Spacer(flex: 1),
           _headig(),
           SizedBox(height: 20),
           _subheading(),
-          Spacer(flex: 1),
+          // Spacer(flex: 1),
           _loginForm(key, emailController),
-          SizedBox(height: 10),
-          _forgetPassword(),
-          Spacer(),
+
           SizedBox(height: 10),
           _resetPassButton(),
-          SizedBox(height: 30),
-          _orContinueWithDivider(),
-          SizedBox(height: 30),
-          _bottomRegistorNow(),
+
           Spacer(),
         ],
       ),
@@ -55,7 +51,7 @@ class ForgetPasswordScreen extends StatelessWidget {
       delay: const Duration(milliseconds: 900),
       duration: const Duration(milliseconds: 1000),
       child: Text(
-        "Please enter your image address",
+        "Please enter your email address",
         style: TextStyle(fontSize: 14),
       ),
     );
@@ -89,64 +85,6 @@ class ForgetPasswordScreen extends StatelessWidget {
           "Reset",
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
-      ),
-    );
-  }
-
-  _forgetPassword() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Text(
-          "Forget Password",
-          style: TextStyle(color: AppColor.forgetPassColor),
-        ),
-      ],
-    );
-  }
-
-  _orContinueWithDivider() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      child: Row(
-        children: [
-          Expanded(
-            child: Container(
-              margin: EdgeInsets.only(right: 10),
-              height: 1,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomLeft,
-                  colors: [Color(0XFFa9a9a9), Color(0XFF000001)],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _bottomRegistorNow() {
-    return RichText(
-      text: TextSpan(
-        text: "Not a member? ",
-        style: TextStyle(color: AppColor.primaryTxtColor, fontSize: 14),
-        children: [
-          TextSpan(
-            text: "Register Now",
-            style: TextStyle(
-              color: AppColor.txtButtonColor,
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-            ),
-            recognizer:
-                TapGestureRecognizer()
-                  ..onTap = () {
-                    log("Register Now tapped");
-                  },
-          ),
-        ],
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'package:flutter_widgets/data/colors.dart';
 import 'package:flutter_widgets/screens/forget_password_screen.dart';
 import 'package:flutter_widgets/screens/login_screen.dart';
 import 'package:flutter_widgets/screens/onboarding_screen.dart';
+import 'package:flutter_widgets/screens/otp_verification_screen.dart';
 import 'package:flutter_widgets/screens/signup_screen.dart';
 
 void main() {
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             backgroundColor: AppColor.primaryBtnColor,
-            minimumSize: Size.fromHeight(50),
+            minimumSize: Size(double.infinity,50),alignment: Alignment.center,
             foregroundColor: AppColor.primaryBtnTxtColor,
           ),
         ),
@@ -59,8 +60,9 @@ class MyApp extends StatelessWidget {
             borderSide: BorderSide.none,
           ),
         ),
+        appBarTheme: AppBarTheme(backgroundColor: Colors.transparent,)
       ),
-      home: ForgetPasswordScreen(),
+      home: OtpVerificationScreen(),
     );
   }
 }
